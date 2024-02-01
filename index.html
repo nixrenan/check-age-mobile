@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checar idade</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        background-color: #2c2c2c;
+        color: #fcfcfc;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      
+      form {
+        width: 320px;
+        height: 180px;
+        border: 1px solid #fcfcfc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 5px;
+      }
+      
+      #inputAge {
+        border: none;
+        padding: 5px;
+        font-family: Sans-Serif;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      
+      .btn {
+        padding: 5px;
+        font-family: Sans-Serif;
+        font-weight: bold;
+        border: none;
+        font-size: 16px;
+        border-radius: 5px;
+        width: 50%;
+        margin-top: 8px;
+      }
+      
+      .btn:hover {
+        background-color: #1cd;
+        cursor: pointer;
+      }
+      
+      #innerText {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+        font-family: Sans-Serif;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    </style>
+    <form id="form">
+      <input type="text" placeholder="Sua idade" required id="inputAge">
+      
+      <input type="submit" value="Checar idade" class="btn">
+      
+      <p id="innerText"></p>
+    </form>
+    <script>
+      let form = document.getElementById('form');
+      
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        let inputAge = document.getElementById('inputAge');
+        
+        let innerText= document.getElementById('innerText');
+        
+        if (inputAge.value >= 18 && inputAge.value <= 120) {
+          innerText.textContent = `${inputAge.value} anos, maior de idade`
+        } else if (inputAge.value < 18 && inputAge.value >= 1) {
+          innerText.textContent = `${inputAge.value} anos, menor de idade`
+        } else {
+          innerText.textContent = `${inputAge.value} anos? tem certeza?`
+        }
+      })
+    </script>
+  </body>
+</html>
